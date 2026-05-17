@@ -1,0 +1,223 @@
+.tabs {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   flex-wrap: nowrap;
+  background: linear-gradient(135deg, #0f0f0f, #561313);
+  padding: 15px 20px;
+
+  border-bottom: 1px solid #b91d1d33;
+  height: 30px;
+}
+.menu-item:hover {
+  background: #b91d3722;
+  color: #b91d32;
+}
+
+.logo {
+   align-items: center;
+  display: flex;
+}
+
+.logo mat-icon {
+  color: #b91d1d;
+  font-size: 28px;
+  width: 28px;
+}
+
+
+.logo h2 {
+  color: #c3012b;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.music-rogo{
+  /* border: 1px solid black; */
+  display: flex;
+  margin-left: auto;
+}
+
+.music-logo h2 {
+  font-size: 18px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.container {
+  height: 100vh;
+  background: #121212;
+}
+
+.sidebar {
+  width: 220px;
+  background: #0f0f0f;
+  color: white;
+  padding: 15px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: #dd2727;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #f53333;
+  color: rgb(7, 7, 7);
+}
+
+.menu-item.active {
+  background: #1db954;
+  color: black;
+  box-shadow: 0 0 10px #1db95488;
+}
+
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: #1db954;
+}
+
+.content {
+  background: linear-gradient(135deg, #0f0f0f, #0a2f1f);
+  padding: 15px 20px;
+
+  border-bottom: 1px solid #1db95433;
+  color: white;
+  padding: 20px;
+}
+
+.content {
+  background:  #090a0a22;
+  color: white;
+  padding: 20px;
+}
+
+.hamburger{
+  
+  margin-right: 20px;
+}
+
+.hamburger mat-icon {
+  color: #3a3737;
+  font-size: 20px;
+  width: 28px;
+   transition: 0.3s;
+}
+.hamburger:hover mat-icon {
+  color: #2d0412;
+}
+.isMenu {
+  background: none;
+  border: none;
+  bottom: 20px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.img-profile{
+   display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-profile img {
+  height: 50px;
+  clip-path: circle(50%);
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #b91d37; /* 🎵 เขียว Spotify */
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  backdrop-filter: blur(10px); /* 🔥 glass effect */
+}
+
+.menu-btn:hover {
+  background: rgba(185, 29, 73, 0.15);
+  color: #b91d4c;
+
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(185, 29, 76, 0.4);
+}
+
+.menu-btn:active {
+  transform: scale(0.95);
+}
+
+.menu-btn{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn mat-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover mat-icon {
+  transform: rotate(180deg);
+}
+
+.menu-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(185, 29, 47, 0.4),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+.menu-btn:hover::after {
+  left: 100%;
+}

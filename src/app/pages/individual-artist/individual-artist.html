@@ -1,0 +1,60 @@
+<div *ngIf="artist" class="music-page">
+
+  <div
+    class="bg-blur"
+    [style.background-image]="'url(' + imgUrl + artist.image + ')'">
+  </div>
+
+  <div class="content">
+
+    <img class="cover" [src]="artist.image" alt="">
+
+    <h1>{{ artist.name }}</h1>
+    <br>
+    @if( artist.bio != '-' || artist.bio.length > 2){
+      <div class="source">
+        <p [class.expanded]="showFullBio">
+          {{ artist.bio }}
+        </p>
+
+      @if(isMobile){
+        <button 
+          *ngIf="artist.bio && artist.bio.length > 100"
+          (click)="toggleBio()"
+          class="read-more-btn">
+
+          {{ showFullBio ? 'ซ่อน' : 'ดูเพิ่มเติม' }}
+
+        </button>
+      }
+    </div>
+    }@else {
+      <div class="source">
+        <h1>ไม่มีเนื้อหาของเพลง</h1>
+      </div>
+    }
+    <p class="desc">
+      เพลงของ {{ artist.name }}
+    </p>
+  </div>
+    
+  <div class="cart-song">
+        <div *ngFor="let song of artist.songs" class="box-song" (click)="goPlay(song)">
+            <div class="cart">
+              <div class="box-img">
+                <img [src]="song.cover" alt="">
+              </div>
+              <div>
+                <div class="box-title">
+                  <h2>{{song.title}}</h2>
+                </div>
+                <div class="box-song-text">
+                  <p><em>{{artist.name}}</em></p>
+                  <span>{{formatTime(song.songtime)}}</span>
+                </div>
+              </div>
+            </div>
+        </div>
+  </div>
+
+</div>

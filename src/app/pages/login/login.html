@@ -1,0 +1,37 @@
+<div class="body">
+    <div class="text-01">
+         <mat-icon>music_note_2</mat-icon>
+        <h1 class="welcome">Welcome Back</h1>
+        <p class="subtitle">Login to your MusicStream account</p>
+    </div>
+  <div class="login-box">
+    <div class="music-bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <h2 class="title">LOGIN</h2>
+    
+    @if(text){
+      <p class="error" [ngStyle]="styleTest">{{text}} {{ imoji }}</p>
+    }
+    <div class="input-group">
+      <label>Username</label>
+      <input type="text" [ngStyle]="inputstyle1" (input)="resetState()" [(ngModel)]="username" placeholder="Enter username">
+    </div>
+    
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" [ngStyle]="inputstyle2" (input)="resetState()" [(ngModel)]="password" placeholder="Enter password">
+    </div>
+
+    <br><br>
+    <button (click)="loings()">เข้าสู่ระบบ</button>
+    <div class="sign-up">
+        <p>Don't have an account?</p>
+        <a href=""> Sign up</a>
+    </div>
+  </div>
+
+</div>

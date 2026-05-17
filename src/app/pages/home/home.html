@@ -1,0 +1,44 @@
+<h3 class="box1-h3">ประวัติการฟัง</h3>
+<div *ngIf="songviews.length >0" class="box1" >
+    <div *ngFor="let view of songviews" class="box-history" (click)="goPlay(view.song)">
+       <div class="box-songview">
+            <img [src]="view.song.cover" alt="">
+            <div class="play-btn-view">▶</div>
+       </div>
+        <div class="box-info">
+           <p>{{view.song.title}}</p>
+           <p>{{getTimeAgo(view.played_at)}}</p>
+           <p></p>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div *ngIf="loading">
+  <p>Loading...</p>
+</div>
+<h3 class="h3-song">TopSong</h3>
+<div *ngIf="!loading && topSongs.length > 0" class="box-newsong">
+  <div *ngFor="let song of topSongs; trackBy: trackById"  class="top-body" (click)="goPlay(song)">
+    <div class="cover">
+      <img [src]="song.cover" height="60">
+      <div class="play-btn">▶</div>
+    </div>
+
+    <div class="info">
+      <h3>{{ song.title }}</h3>
+      <p class="box-artist">{{ song.artist?.Name }}</p>
+
+      <span class="views">
+        <mat-icon>visibility</mat-icon>
+        {{ song.views }} views
+      </span>
+    </div>
+
+    <div class="menu">⋮</div>
+  </div>
+</div>
+
+<!-- Empty -->
+<div *ngIf="!loading && topSongs.length === 0 ">
+  ไม่มีข้อมูล
+</div>

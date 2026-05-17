@@ -19,14 +19,13 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+                "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/material-theme.scss", "src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -62,6 +61,11 @@
               "buildTarget": "listen_music:build:development"
             }
           },
+            "options": {
+              "allowedHosts": [
+                "483b-2001-fb1-11c-6262-a9a4-d284-9f41-915d.ngrok-free.app"
+              ]
+            },
           "defaultConfiguration": "development"
         },
         "test": {

@@ -1,0 +1,9 @@
+<h1>ศิลปินทั้งหมด</h1>
+
+<div *ngIf="isMobile" class="box-cart">
+    <div *ngFor="let a of artist" class="box-artist" (click)="clickLink(a)">
+        <img [src]="a.image" alt="">
+        <h2> {{a.name}}</h2>
+    </div>
+</div>
+

@@ -1,0 +1,45 @@
+<nav class="tabs"> 
+    <button *ngIf="isMobile" (click)="toggleMenu(sidenav)" class="menu-btn">
+        <mat-icon>dehaze</mat-icon>
+    </button>
+    <div class="logo">
+        <div class="hamburger">
+            <!-- <button (click)="isMenu()" class="isMenu"><mat-icon>dehaze</mat-icon></button> -->
+        </div>
+        <div class="music-rogo">
+            <mat-icon>graphic_eq</mat-icon>
+            <h2>เปิดเพื่อฟังเพลง</h2>
+        </div>
+    </div>
+
+  <!-- <mat-icon>search</mat-icon> -->
+  <div class="img-profile">
+    <img [src]="imgs" />
+  </div>
+</nav>
+ <mat-sidenav-container class="container">
+
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile"
+    class="sidebar"
+  >
+
+    <a routerLink="/" class="menu-item"><mat-icon>home</mat-icon>Home</a>
+    <a routerLink="/artist" class="menu-item"><mat-icon>album</mat-icon>Artists</a>
+    <!-- <a routerLink="/playlists" class="menu-item">Playlists</a>
+    <a routerLink="/favorites" class="menu-item">Favorites</a> -->
+    <a routerLink="/upload" class="menu-item"><mat-icon>upload</mat-icon>Upload</a>
+
+    <button (click)="logouts()" class="logout">Logout</button>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

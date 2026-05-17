@@ -1,0 +1,96 @@
+<div class="box-text">
+  <h1>Upload Song</h1>
+  <p>Share your music with the world</p>
+</div>
+<div class="box-card">
+    <div class="box-left">
+      <div class="card">
+         <label>ชื่อเพลง</label>
+        <input type="text" name="title" [(ngModel)]="song.title" placeholder="ชื่อเพลง">
+        @if(text === "ไม่มีข้อมูลในชื่อเพลง"){
+          <p [ngStyle]="style">{{text}}</p>
+        }
+      </div>
+     <div>
+    <div class="box-row">
+      <div class="card">
+        <select [(ngModel)]="artistId">
+            <option value="">
+              เลือกศิลปิน
+            </option>
+
+          <option *ngFor="let a of artist" [ngValue]="a.id">
+            {{ a.name}} {{a.id}}
+          </option>
+        </select>
+        @if(text === "ไม่มีข้อมูลศิลปิน"){
+          <p [ngStyle]="style">{{text}}</p>
+        }
+      </div>
+      <div class="card">
+        <select [(ngModel)]="song.category">
+          <option value="">เลือกหมวด</option>
+          <option *ngFor="let c of categories" [value]="c">
+            {{ c }}
+          </option>
+        </select>
+        @if(text === "ไม่มีข้อมูลประเภทของของเพลง(เพลงแนวไหน)"){
+          <p [ngStyle]="style">{{text}}</p>
+        }
+      </div>
+     </div>
+  </div>
+      <div class="card">
+        <label>เนื้อหาของเพลง</label>
+        <input type="text" name="sub" [(ngModel)]="song.sub" placeholder="เนื้อหาของเพลง">
+      </div>
+        <div class="card upload-box"
+        (click)="songInput.click()"
+        (dragover)="onDragOver($event)"
+        (drop)="onDropSong($event)">
+        <p *ngIf="!audioPreview">Drag and drop audio file</p>
+        <audio *ngIf="audioPreview"
+          controls
+          [src]="audioPreview">
+        </audio>
+        <input #songInput
+          type="file"
+          hidden
+          accept="audio/*"
+          (change)="onSongChange($event)">
+          <!-- <p *ngIf="audioPreview">{{formatTime(song.songtime)}}</p> -->
+    </div>
+      @if(text === "ไม่มีเพลงที่จะอัพโหลด"){
+        <p [ngStyle]="style">{{text}}</p>
+      }
+    </div>
+  <!-- <div class="box-right">
+    <p>เลือกรูปปก</p>
+    <input type="file" (change)="onCoverChange($event)" />
+    </div>
+ <div class="box-file">
+    <p>เลือกไฟล์เพลง</p>
+    <input type="file" (change)="onSongChange($event)" />
+ </div> -->
+
+   <div class="right">
+      <div class="box-cover"
+        (click)="coverInput.click()"
+        (dragover)="onDragOver($event)"
+        (drop)="onDropCover($event)">
+        <p>Cover Image</p>
+        <div class="upload-box">
+          <img *ngIf="coverPreview" [src]="coverPreview" class="preview-img">
+          <p *ngIf="!coverPreview">เลือกรูปภาพ</p>
+          <input #coverInput type="file" hidden accept="image/*"
+            (change)="onCoverChange($event)">
+        </div>
+      </div>
+    <br><br>
+    <div class="card publish">
+      <p>By publishing, you confirm...</p>
+      <button  (click)="upload()">Publish Song</button>
+    </div>
+  </div>
+
+</div>
