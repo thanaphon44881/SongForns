@@ -75,7 +75,7 @@ export interface PlayResponse{
 
 export class Auth {
   constructor(private http: HttpClient) {}
-   private apiUrl = 'https://songapi-ikpn.onrender.com';
+   private apiUrl = 'https://song-forns.vercel.app';
 
   login(data: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(
