@@ -1,6 +1,9 @@
 .box1-h3 {
   margin-left: 50px;
   color: white;
+  font-family: "Kanit", sans-serif;
+  font-weight: 00;
+  font-style: normal;
 }
 
 .box1 {
@@ -12,14 +15,74 @@
   overflow-x: auto; 
 }
 
-/* card */
 .box-history {
   min-width: 160px;
   cursor: pointer;
   border-radius: 10px;
   padding: 10px;
   transition: 0.3s;
-   width: 10ch;
+  width: 10ch;
+}
+
+.box-top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.h3-song {
+  color: white;
+  font-size: 20px;
+   font-family: "Kanit", sans-serif;
+  font-weight: 00;
+  font-style: normal;
+  margin-left: 60px;
+  align-self: flex-end;
+}
+
+.box-top mat-icon{
+  margin-left: auto;
+  margin-right: 50px;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  min-width: 160px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(26, 26, 26, 0.4);
+  overflow: hidden;
+  z-index: 1000;
+  display: none;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content p {
+  display: block;
+  padding: 12px 15px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.dropdown-content p:hover {
+  background: #878686;
+  color: rgb(255, 255, 255);
 }
 
 .box-history:hover {
@@ -86,14 +149,6 @@
   flex-wrap: wrap;
   
 }
-
-.h3-song {
-  color: white;
-  font-size: 20px;
-  margin-left: 60px;
-  align-self: flex-end;
-}
-
 
 .top-body{
    display: flex;
@@ -178,4 +233,73 @@
   font-size: 20px;
   cursor: pointer;
   color: #e5e5e5;
+}
+
+@media (max-width: 680px) {
+  .top-body{
+    max-width: 330px;
+    width: 90%;
+  }
+
+  .h3-song{
+    font-size: 15px;
+  }
+
+  .box1-h3{
+    font-size: 15px;
+  }
+}
+
+.skeleton-box,
+.sk-text {
+  background: linear-gradient(
+    90deg,
+    #2d2d2d 25%,
+    #3f3f3f 50%,
+    #2d2d2d 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.3s infinite;
+}
+
+.sk-text {
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.sk-title {
+  height: 16px;
+  width: 80%;
+}
+
+.sk-time {
+  height: 12px;
+  width: 50%;
+}
+
+.sk-artist {
+  height: 12px;
+  width: 60%;
+}
+
+.sk-view {
+  height: 12px;
+  width: 40%;
+}
+
+.skeleton-history {
+  pointer-events: none;
+}
+
+.skeleton-top {
+  pointer-events: none;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

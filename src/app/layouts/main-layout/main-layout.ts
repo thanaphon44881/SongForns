@@ -17,7 +17,6 @@ export class MainLayout implements OnInit {
 
   isMobile = false;      
   menuOpen = false;     
-  imgs: string = "https://jvvyuerxjgqaylbyfkqi.supabase.co/storage/v1/object/public/Songs/1778938189_1776164899_Screenshot%202026-04-14%20173717.png"
   user!: User;
   imageUrl!: string;
 

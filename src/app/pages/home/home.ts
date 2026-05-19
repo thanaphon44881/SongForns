@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Auth, Song,SongResponse, SongViwes } from '../../services/auth';
 import { CommonModule } from '@angular/common';
@@ -19,9 +19,11 @@ export class Home {
   topSongs: Song[] = []
   newSongs: Song[] = []
   songviews: SongViwes[] = []
+  isSongn_t: boolean = false
   loading = true;
 
   baseUrl: string = ''
+  showMenu = false;
 
   getTimeAgo(time: string) {
     return format(time, 'th')
@@ -83,11 +85,32 @@ export class Home {
     });
   }
 
+  checktop_new(n: boolean){
+    if (n){
+      this.isSongn_t = true
+    }else{
+      this.isSongn_t = false
+    }
+  }
+
   trackById(index: number, item: any) {
     return item.id;
   }
 
   onImgError(event: any) {
     event.target.src = 'assets/default.jpg';
+  }
+
+  @ViewChild('menuBox') menuBox!: ElementRef;
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: MouseEvent) {
+    if (!this.menuBox.nativeElement.contains(event.target)) {
+      this.showMenu = false;
+    }
   }
 }
